@@ -1,0 +1,214 @@
+\begin{frame}
+\frametitle{Beziérová křivka}
+$$
+{\color{magenta}\vec{P}_{0,1,2,3}(t)}=(1,t^1,t^2,t^3)\cdot
+\left(
+\begin{array}{cccc}
+ 1 &  0 &  0 &  0 \\
+-3 &  3 &  0 &  0 \\
+ 3 & -6 &  3 &  0 \\
+-1 &  3 & -3 &  1
+\end{array}
+\right)
+\cdot
+\left(
+\begin{array}{c}
+  {\color{green}\vec{P}_{0}} \\
+  {\color{green}\vec{P}_{1}} \\
+  {\color{green}\vec{P}_{2}} \\
+  {\color{green}\vec{P}_{3}} 
+\end{array}
+\right)
+$$
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Beziérová křivka}
+  \begin{figure}[h]
+  \includegraphics[width=8cm,keepaspectratio]{pics/bezier/bezier}
+  \end{figure}
+  {\scriptsize
+  \[
+  \begin{array}{lclcl}
+    \color{red}    {\vec{P}_{0,1}    } &=& (1-t)\color{green}{\vec{P}_0      } &+& (t)\color{green}{\vec{P}_1      } \\
+    \color{red}    {\vec{P}_{1,2}    } &=& (1-t)\color{green}{\vec{P}_1      } &+& (t)\color{green}{\vec{P}_2      } \\
+    \color{red}    {\vec{P}_{2,3}    } &=& (1-t)\color{green}{\vec{P}_2      } &+& (t)\color{green}{\vec{P}_3      } \\
+    \color{blue}   {\vec{P}_{0,1,2}  } &=& (1-t)\color{red}  {\vec{P}_{0,1}  } &+& (t)\color{red}  {\vec{P}_{1,2}  } \\
+    \color{blue}   {\vec{P}_{1,2,3}  } &=& (1-t)\color{red}  {\vec{P}_{1,2}  } &+& (t)\color{red}  {\vec{P}_{2,3}  } \\
+    \color{magenta}{\vec{P}_{0,1,2,3}} &=& (1-t)\color{blue} {\vec{P}_{0,1,2}} &+& (t)\color{blue} {\vec{P}_{1,2,3}} 
+  \end{array}
+  \]
+  }
+\end{frame}
+
+\begin{frame}
+\frametitle{Beziérová křivka}
+  {\tiny
+  \[
+  \begin{array}{lclcl}
+    \color{red}    {\vec{P}_{0,1}    } &=& (1-t)\color{green}{\vec{P}_0      } &+& (t)\color{green}{\vec{P}_1      } \\
+    \color{red}    {\vec{P}_{1,2}    } &=& (1-t)\color{green}{\vec{P}_1      } &+& (t)\color{green}{\vec{P}_2      } \\
+    \color{red}    {\vec{P}_{2,3}    } &=& (1-t)\color{green}{\vec{P}_2      } &+& (t)\color{green}{\vec{P}_3      } \\
+    \color{blue}   {\vec{P}_{0,1,2}  } &=& (1-t)\color{red}  {\vec{P}_{0,1}  } &+& (t)\color{red}  {\vec{P}_{1,2}  } \\
+    \color{blue}   {\vec{P}_{1,2,3}  } &=& (1-t)\color{red}  {\vec{P}_{1,2}  } &+& (t)\color{red}  {\vec{P}_{2,3}  } \\
+    \color{magenta}{\vec{P}_{0,1,2,3}} &=& (1-t)\color{blue} {\vec{P}_{0,1,2}} &+& (t)\color{blue} {\vec{P}_{1,2,3}} 
+  \end{array}
+  \]
+  }
+  {\tiny
+  \[
+  \begin{array}{lclcl}
+    \color{blue}   {\vec{P}_{0,1,2}  } &=& (1-t)((1-t){\color{green}\vec{P}_0} + (t){\color{green}\vec{P}_1}) &+& (t)((1-t){\color{green}\vec{P}_1} + (t){\color{green}\vec{P}_2}) \\
+    \color{blue}   {\vec{P}_{1,2,3}  } &=& (1-t)((1-t){\color{green}\vec{P}_1} + (t){\color{green}\vec{P}_2}) &+& (t)((1-t){\color{green}\vec{P}_2} + (t){\color{green}\vec{P}_3}) \\
+    \color{magenta}{\vec{P}_{0,1,2,3}} &=& (1-t)\color{blue} {\vec{P}_{0,1,2}} &+& (t)\color{blue} {\vec{P}_{1,2,3}} 
+  \end{array}
+  \]
+  }
+  {\tiny
+  \[
+  \begin{array}{lclccrc}
+    \color{magenta}{\vec{P}_{0,1,2,3}} &=& (1-t)&(1-t)&(1-t)&{\color{green}\vec{P}_0} &+ \\
+                                       & & (1-t)&(1-t)&(  t)&{\color{green}\vec{P}_1} &+ \\
+                                       & & (1-t)&(  t)&(1-t)&{\color{green}\vec{P}_1} &+ \\
+                                       & & (1-t)&(  t)&(  t)&{\color{green}\vec{P}_2} &+ \\
+                                       & & (  t)&(1-t)&(1-t)&{\color{green}\vec{P}_1} &+ \\
+                                       & & (  t)&(1-t)&(  t)&{\color{green}\vec{P}_2} &+ \\
+                                       & & (  t)&(  t)&(1-t)&{\color{green}\vec{P}_2} &+ \\
+                                       & & (  t)&(  t)&(  t)&{\color{green}\vec{P}_3} &
+  \end{array}
+  \]
+  }
+  {\tiny
+  \[
+  \begin{array}{lclccrc}
+    \color{magenta}{\vec{P}_{0,1,2,3}} &=& (1-t)&(1-t)&(1-t)&{\color{green}\vec{P}_0} &+ \\
+                                       & & 3(1-t)&(1-t)&(  t)&{\color{green}\vec{P}_1} &+ \\
+                                       & & 3(1-t)&(  t)&(  t)&{\color{green}\vec{P}_2} &+ \\
+                                       & & (  t)&(  t)&(  t)&{\color{green}\vec{P}_3} &
+  \end{array}
+  \]
+  }
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Beziérová křivka}
+  {\tiny
+  \[
+  \begin{array}{lclccrc}
+    \color{magenta}{\vec{P}_{0,1,2,3}} &=& (1-t)&(1-t)&(1-t)&{\color{green}\vec{P}_0} &+ \\
+                                       & & 3(1-t)&(1-t)&(  t)&{\color{green}\vec{P}_1} &+ \\
+                                       & & 3(1-t)&(  t)&(  t)&{\color{green}\vec{P}_2} &+ \\
+                                       & & (  t)&(  t)&(  t)&{\color{green}\vec{P}_3} &
+  \end{array}
+  \]
+  }
+  {\tiny
+  \[
+  \begin{array}{lclrc}
+    \color{magenta}{\vec{P}_{0,1,2,3}} &=& (1-t)^3&{\color{green}\vec{P}_0} &+ \\
+                                       & & 3(1-t)^2(t)&{\color{green}\vec{P}_1} &+ \\
+                                       & & 3(1-t)(t)^2&{\color{green}\vec{P}_2} &+ \\
+                                       & & (t)^3&{\color{green}\vec{P}_3} &
+  \end{array}
+  \]
+  }
+  {\tiny
+  \[
+  \begin{array}{lclrc}
+    \color{magenta}{\vec{P}_{0,1,2,3}} &=& \dbinom{3}{0}(1-t)^{3-0}(t)^{0}&{\color{green}\vec{P}_0} &+ \\
+                                       & & \dbinom{3}{1}(1-t)^{3-1}(t)^{1}&{\color{green}\vec{P}_1} &+ \\
+                                       & & \dbinom{3}{2}(1-t)^{3-2}(t)^{2}&{\color{green}\vec{P}_2} &+ \\
+                                       & & \dbinom{3}{3}(1-t)^{3-3}(t)^{3}&{\color{green}\vec{P}_3} &
+  \end{array}
+  \]
+  }
+  {\tiny
+  $$
+  {\color{magenta}\vec{P}_{0,1,2,3}(t)} = \sum\limits_{i=0}^{i \leq 3}\dbinom{3}{i}(1-t)^{3-i}(t)^{i}{\color{green}\vec{P}_i} 
+  $$
+  }
+  {\tiny
+  $$
+  {\color{magenta}\vec{P}(t)} = \sum\limits_{i=0}^{i \leq n-1}\dbinom{n-1}{i}(1-t)^{n-1-i}(t)^{i}{\color{green}\vec{P}_i} 
+  $$
+  }
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Beziérová křivka}
+  {\tiny
+  \[
+  \begin{array}{lclrc}
+    \color{magenta}{\vec{P}_{0,1,2,3}(t)} &=& (1-t)^3&{\color{green}\vec{P}_0} &+ \\
+                                       & & 3(1-t)^2(t)&{\color{green}\vec{P}_1} &+ \\
+                                       & & 3(1-t)(t)^2&{\color{green}\vec{P}_2} &+ \\
+                                       & & (t)^3&{\color{green}\vec{P}_3} &
+  \end{array}
+  \]
+  }
+  {\tiny
+  \[
+  \begin{array}{lclrc}
+    \color{magenta}{\vec{P}_{0,1,2,3}(t)} &=& (1-3t+3t^2-t^3)&{\color{green}\vec{P}_0} &+ \\
+                                       & & (3t-6t^2+3t^3)&{\color{green}\vec{P}_1} &+ \\
+                                       & & (3t^2-3t^3)&{\color{green}\vec{P}_2} &+ \\
+                                       & & (t^3)&{\color{green}\vec{P}_3} &
+  \end{array}
+  \]
+  }
+  {\tiny
+$$
+{\color{magenta}\vec{P}_{0,1,2,3}(t)}=(1,t^1,t^2,t^3)\cdot
+\left(
+\begin{array}{cccc}
+ 1 &  0 &  0 &  0 \\
+-3 &  3 &  0 &  0 \\
+ 3 & -6 &  3 &  0 \\
+-1 &  3 & -3 &  1
+\end{array}
+\right)
+\cdot
+\left(
+\begin{array}{c}
+  {\color{green}\vec{P}_{0}} \\
+  {\color{green}\vec{P}_{1}} \\
+  {\color{green}\vec{P}_{2}} \\
+  {\color{green}\vec{P}_{3}} 
+\end{array}
+\right)
+$$
+  }
+\end{frame}
+
+\begin{frame}
+\frametitle{Beziérová plocha}
+  \begin{figure}[h]
+  \includegraphics[width=5cm,keepaspectratio]{pics/bezier/bezier3}
+  \end{figure}
+  {\tiny
+  \[
+  \begin{array}{ccclllllll}
+    {\color{blue}R_{0,0}} &=& (1-l)(1-t){\color{red}Q_{0,0}} &+& (1-l)(t){\color{red}Q_{1,0}}   &+& (l)(1-t){\color{red}Q_{0,1}}   &+& (l)(t){\color{red}Q_{1,1}} \\
+    {\color{blue}R_{1,0}} &=& (1-l)(1-t){\color{red}Q_{1,0}} &+& (1-l)(t){\color{red}Q_{2,0}}   &+& (l)(1-t){\color{red}Q_{1,1}}   &+& (l)(t){\color{red}Q_{2,1}} \\
+    {\color{blue}R_{2,0}} &=& (1-l)(1-t){\color{red}Q_{2,0}} &+& (1-l)(t){\color{red}Q_{3,0}}   &+& (l)(1-t){\color{red}Q_{2,1}}   &+& (l)(t){\color{red}Q_{3,1}} \\
+                         &&&&\vdots &&&& \\
+    {\color{blue}R_{i,k}} &=& (1-l)(1-t){\color{red}Q_{i,k}} &+& (1-l)(t){\color{red}Q_{i+1,k}} &+& (l)(1-t){\color{red}Q_{i,k+1}} &+& (l)(t){\color{red}Q_{i+1,k+1}} \\
+  \end{array}
+  \]
+  }
+  {\tiny
+  \[
+  \begin{array}{ccclllllll}
+    {\color{blue}R_{i,k}} &=& (1-l)(1-t){\color{red}Q_{i,k}} &+& (1-l)(t){\color{red}Q_{i+1,k}} &+& (l)(1-t){\color{red}Q_{i,k+1}} &+& (l)(t){\color{red}Q_{i+1,k+1}}        \\
+    {\color{magenta}S_{i,k}} &=& (1-l)(1-t){\color{blue}R_{i,k}} &+& (1-l)(t){\color{blue}R_{i+1,k}} &+& (l)(1-t){\color{blue}R_{i,k+1}} &+& (l)(t){\color{blue}R_{i+1,k+1}} \\
+    {\color{cyan}X_{i,k}} &=& (1-l)(1-t){\color{magenta}S_{i,k}} &+& (1-l)(t){\color{magenta}S_{i+1,k}} &+& (l)(1-t){\color{magenta}S_{i,k+1}} &+& (l)(t){\color{magenta}S_{i+1,k+1}}
+  \end{array}
+  \]
+  }
+\end{frame}
+
+

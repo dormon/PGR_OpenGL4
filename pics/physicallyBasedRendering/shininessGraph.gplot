@@ -1,0 +1,16 @@
+
+reset
+set term pdf
+
+set xlabel "angle"                                                       
+
+set xrange [ -1.6 : 1.6 ] noreverse nowriteback                                
+set yrange [ * : * ] noreverse nowriteback     
+ 
+set output "pics/physicallyBasedRendering/shininessGraph.pdf"
+
+set key left top
+
+plot cos(x) title "n=1" with lines lt 1 lw 4 lc rgb "red", \
+cos(x)**4 title "n=4" with lines lt 1 lw 4 lc rgb "green",\
+cos(x)**16 title "n=16" with lines lt 1 lw 4 lc rgb "blue"
