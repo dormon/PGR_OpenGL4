@@ -14,22 +14,21 @@
 	\item V OpenGL je to objekt.
 \end{itemize}
 {\scriptsize
-\begin{minted}[frame=lines]{c++}
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
 //vytvoreni jmena textury
 glCreateTextures(GL_TEXTURE_2D,1,&tColor);//vygenerovani jmeno textury pro barvu
 
 //nastaveni parametru textury
 //filtering
-glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
-glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+glTextureParameteri(tColor,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+glTextureParameteri(tColor,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
 
 //wrapping
-glTexParameteri(GL_TEXTURE_2D,GL_WRAP_S,GL_CLAMP_TO_EDGE);
-glTexParameteri(GL_TEXTURE_2D,GL_WRAP_T,GL_REPEAT);
+glTextureParameteri(tColor,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
+glTextureParameteri(tColor,GL_TEXTURE_WRAP_T,GL_REPEAT);
 
 //alokace a nahrani dat na GPU
-glBindTexture(GL_TEXTURE_2D,tColor);
-glTexImage2D(GL_TEXTURE_2D,0,//alokujeme misto
+glTextureImage2DEXT(tColor,GL_TEXTURE_2D,0,//alokujeme misto
   GL_RGBA32F,//format ulozeni na GPU (4*float pro pixel)
   WIDTH,HEIGHT,0,GL_RGBA,//format ulozeni dan na CPU
   GL_UNSIGNED_BYTE,//typ dat na CPU
@@ -54,11 +53,11 @@ glTexImage2D(GL_TEXTURE_2D,0,//alokujeme misto
 \frametitle{Nastavení textur}
 Shader Program:
 {\scriptsize
-\begin{minted}[frame=lines]{glsl}
+\begin{minted}[bgcolor=bg]{packages/graphics.py:GLShaderLexer -x}
 #version 330
-uniform sampler2D Textura;
-uniform sampler2D Terrain;
-uniform sampler2D HeightMap;
+layout(binding=0)uniform sampler2D Textura;
+layout(binding=1)uniform sampler2D Terrain;
+layout(binding=1)uniform sampler2D HeightMap;
 void main(){
   texture(Texture,coords);
   //...
@@ -66,15 +65,10 @@ void main(){
 }
 Aplikace:
 {\scriptsize
-\begin{minted}[frame=lines]{c++}
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
 //pripojemni textur k texurovacim jednotkam
 glBindTextureUnit(0,ID2);
-glBindTextureUnit(1,ID1)
-
-//nastaveni uniformnich promennych v shaderu na danou texturovaci jednotku
-glUniform1i(glGetUniformLocation("Terrain"),0);//nastavim uniform
-glUniform1i(glGetUniformLocation("Textura"),1);//nastavime uniform
-glUniform1i(glGetUniformLocation("HeightMap"),1);//nastavime uniform
+glBindTextureUnit(1,ID1);
 \end{minted}
 }
 \end{frame}

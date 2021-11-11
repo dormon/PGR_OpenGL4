@@ -50,14 +50,18 @@
   \begin{itemize}
     \item{
     Vytvoření VBO identifikátorů:
-    {\scriptsize
-    \mint[frame=lines]{c++}|void glCreateFramebuffers(GLsizei n,GLuint * buffers);|
-    }}
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
+void glCreateFramebuffers(GLsizei n,GLuint * buffers);
+\end{minted}
+}}
     \item{
     Uvolnění VBO identifikátorů:
-    {\scriptsize
-    \mint[frame=lines]{c++}|void glDeleteFramebuffers(GLsizei n,GLuint * buffers);|
-    }}
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
+void glDeleteFramebuffers(GLsizei n,GLuint * buffers);
+\end{minted}
+}}
   \end{itemize}
 \end{frame}
 
@@ -66,9 +70,11 @@
   \begin{itemize}
     \item{
     Pro ověření stavu FBO použijeme tuto funkci
-    {\scriptsize
-    \mint[frame=lines]{c++}|GLenum glCheckNamedFramebufferStatus(GLuint fbo,GLenum target);|
-    }}
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
+GLenum glCheckNamedFramebufferStatus(GLuint fbo,GLenum target);
+\end{minted}
+}}
     \item{
     Pokud funkce vraci {\color{red} GL\_FRAMEBUFFER\_COMPLETE} je vše v pořádku.
     }
@@ -81,12 +87,14 @@
   \begin{itemize}
     \item{
     Aktivování/deaktivování FBO:
-    {\scriptsize
-    \mint[frame=lines]{c++}|void glBindFramebuffer(GLenum target,GLuint framebuffer);|
-    }
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
+void glBindFramebuffer(GLenum target,GLuint framebuffer);
+\end{minted}
+}
     \begin{description}
     \item[target] GL\_FRAMEBUFFER stejný buffer pro čtení i zápis, GL\_READ\_FRAMEBUFFER, GL\_DRAW\_FRAMEBUFFER.
-    \item[framebuffer] Jméno FBO získané {\color{blue} glGenFramebuffers}.
+    \item[framebuffer] Jméno FBO získané {\color{blue} glCreateFramebuffers}.
     Pokud nastaveno na 0 deaktivuje buffer.
     \end{description}
     }
@@ -99,12 +107,12 @@
     \item{
     Attachment představuje jeden podbuffer FBO - například hloubkový buffer.
     Připojení textur k attachmentům:
-    {\scriptsize
-    \begin{minted}[frame=lines]{c++}
-    void glNamedFramebufferTexture(GLuint fbo,GLenum attachment,
-      GLuint texture,GLint level);
-    \end{minted}
-    }
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
+void glNamedFramebufferTexture(GLuint fbo,GLenum attachment,
+  GLuint texture,GLint level);
+\end{minted}
+}
     \begin{description}
     \item[fbo] framebuffer
     \item[attachment] Které informace budeme zapisovat do textury.
@@ -117,12 +125,12 @@
     \end{description}
     }
     \item Layered rendering
-    {\scriptsize
-    \begin{minted}[frame=lines]{c++}
-    void glNamedFramebufferTextureLayer(GLuint fbo,GLenum attachment,
-      GLuint texture,GLint level,GLint layer);
-    \end{minted}
-    }
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
+void glNamedFramebufferTextureLayer(GLuint fbo,GLenum attachment,
+  GLuint texture,GLint level,GLint layer);
+\end{minted}
+}
   \end{itemize}
 \end{frame}
 
@@ -131,11 +139,11 @@
   \begin{itemize}
     \item{
     Nastavením seznamu attachmentů definujeme, do kterých barevných bufferů se bude kreslit.
-    {\scriptsize
-    \begin{minted}[frame=lines]{c++}
-    void glNamedFramebufferDrawBuffers(GLuint id,GLsizei n,const GLenum * bufs);
-    \end{minted}
-    }
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
+void glNamedFramebufferDrawBuffers(GLuint id,GLsizei n,const GLenum * bufs);
+\end{minted}
+}
     \begin{description}
     \item[id] framebuffer
     \item[n] Počet bufferů, do kterých budeme kreslit.
@@ -150,8 +158,8 @@
 \frametitle{Kompletní příklad}
     Do textur budeme vykreslovat barvu, normálu a hloubku.
     Fragment shader:
-    {\scriptsize
-    \begin{minted}[frame=lines]{glsl}
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/graphics.py:GLShaderLexer -x}
 #version 430
 layout(location=0)out vec4 fragColor;//jeden vystup - drawbuffer0
 layout(location=1)out vec3 fragNormal;//druhy vystup - drawbuffer1
@@ -161,15 +169,15 @@ void main(){
   fragColor=vec4(fCol,1);//zapis barvy
   fragNormal=(fNor+1)/2;//zapis normaly
 }
-    \end{minted}
-    }
+\end{minted}
+}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Kompletní příklad}
     Aplikace - inicializace:
     {\tiny
-    \begin{minted}[frame=lines]{c++}
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
 glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA8F,WIDTH,HEIGHT,0,GL_RGBA,
   GL_UNSIGNED_BYTE,NULL);//alokujeme misto
 //...
@@ -205,13 +213,13 @@ glBindFramebuffer(GL_FRAMEBUFFER,0);
 \begin{frame}[fragile]
 \frametitle{Kompletní příklad}
     Aplikace - kresleni:
-    {\scriptsize
-    \begin{minted}[frame=lines]{c++}
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
 glBindFramebuffer(GL_FRAMEBUFFER,FBO);//aktivujeme FBO
 glDrawArrays(...);
 glBindFramebuffer(GL_FRAMEBUFFER,0);//deaktivovani FBO
-    \end{minted}
-    }
+\end{minted}
+}
 \end{frame}
 
 \setbeamercolor{background canvas}{bg=fitblue}
@@ -226,8 +234,8 @@ glBindFramebuffer(GL_FRAMEBUFFER,0);//deaktivovani FBO
 \begin{frame}[fragile]
 \frametitle{Kompletní příklad tvorba hier. z-bufferu}
 		GLSL - CreateHierarchy:
-		{\tiny
-		\begin{minted}[frame=lines]{glsl}
+{\tiny
+\begin{minted}[bgcolor=bg]{packages/graphics.py:GLShaderLexer -x}
 //vertex shader////////////////////////////////////////////////////////////
 #version 430
 void main(){
@@ -262,17 +270,17 @@ void main(void){
 \begin{frame}[fragile]
 \frametitle{Kompletní příklad tvorba hier. z-bufferu}
 		Aplikace - inicializace:
-		{\scriptsize
-		\begin{minted}[frame=lines]{c++}
-glGenTextures(1,&Depth);
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
+glCreateTextures(GL_TEXTURE_2D,1,&Depth);
 //textura obsahujici minimalni a maximalni hloubku
 glBindTexture(GL_TEXTURE_2D,Depth);
-glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
-glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST_MIPMAP_NEAREST);
+glTextureParameteri(Depth,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+glTextureParameteri(Depth,GL_TEXTURE_MIN_FILTER,GL_NEAREST_MIPMAP_NEAREST);
 int Size=WSize;
 int Level=0;
 while(Size>0){//smycka pres levely
-  glTexImage2D(GL_TEXTURE_2D,Level++,GL_RG32F,Size,Size,0,GL_RG,
+  glTextureImage2DEXT(Depth,GL_TEXTURE_2D,Level++,GL_RG32F,Size,Size,0,GL_RG,
     GL_FLOAT,NULL);//alokace vrstvy
   Size/=2;
 }
@@ -289,18 +297,17 @@ glCreateFramebuffers(1,&FBO);//vygenerujeme nazev pro FBO
 \begin{frame}[fragile]
 \frametitle{Kompletní příklad tvorba hier. z-bufferu}
 		Aplikace - render2 - tvorba hierarchie:
-		{\tiny
-		\begin{minted}[frame=lines]{c++}
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
 glUseProgram(CreateHierarchy);
 int Level=1;
 int ActSize=WSize/2;
 glBindFramebuffer(GL_FRAMEBUFFER,HFBO);//bind framebuffer
-glActiveTexture(GL_TEXTURE0);//activate tex. unit 0
 glBindTextureUnit(0,Depth);//bind depth texture to tex. unit 0
 while(ActSize>0){//while there are
   glViewport(0,0,ActSize,ActSize);//set viewport
-  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_BASE_LEVEL,Level-1);//starting mipmap level
-  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAX_LEVEL,Level-1);//max mipmap level
+  glTextureParameteri(Depth,GL_TEXTURE_BASE_LEVEL,Level-1);//starting mipmap level
+  glTextureParameteri(Depth,GL_TEXTURE_MAX_LEVEL,Level-1);//max mipmap level
   glNamedFramebufferTexture(FBO,GL_COLOR_ATTACHMENT0,Depth,Level);
   GLenum DrawBuffers[]={GL_COLOR_ATTACHMENT0};
   glNamedFramebufferDrawBuffers(1,DrawBuffers);
@@ -309,11 +316,11 @@ while(ActSize>0){//while there are
   ActSize/=2;//actual size of mipmap
 }
 glBindFramebuffer(GL_FRAMEBUFFER,0);//unbind framebffer
-glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_BASE_LEVEL, 0);//starting mipmap level
-glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, Level-1);//max mipmap level
+glTextureParameteri(Depth, GL_TEXTURE_BASE_LEVEL, 0);//starting mipmap level
+glTextureParameteri(Depth, GL_TEXTURE_MAX_LEVEL, Level-1);//max mipmap level
 glViewport(0,0,WSize,WSize);//reset viewport
-		\end{minted}
-		}
+\end{minted}
+}
 \end{frame}
 
 
@@ -329,10 +336,10 @@ glViewport(0,0,WSize,WSize);//reset viewport
 \begin{frame}[fragile]
 \frametitle{Layered rendering, cube map}
 Cube map rendering - CPU
-{\tiny
-\begin{minted}[frame=lines]{c++}
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
 GLuint cubeMap;
-glCreateTextures(GL_TETURE_CUBE_MAP,1,&cubeMap);
+glCreateTextures(GL_TEXTURE_CUBE_MAP,1,&cubeMap);
 for(size_t i=0;i<6;++i)
   glTextureImage2DEXT(cubeMap,GL_TEXTURE_CUBE_MAP_POSITIVE_X+i,0,
     GL_RGBA8,width,height,0,GL_RGBA,GL_UNSIGNED_BYTE,nullptr);
@@ -345,8 +352,8 @@ glNamedFramebufferTexture(cubeMap,GL_COLOR_ATTACHMENT0,cubeMap,0);
 \begin{frame}[fragile]
 \frametitle{Layered rendering, cube map}
 Cube map rendering - Vertex Shader
-{\tiny
-\begin{minted}[frame=lines]{glsl}
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/graphics.py:GLShaderLexer -x}
 layout(location=0)in vec3 position;
 uniform float near = 0.1;
 uniform float far  = 1000;
@@ -378,8 +385,8 @@ void main(){
 \begin{frame}[fragile]
 \frametitle{Layered rendering, cube map}
 Cube map rendering - Geometry shader
-{\tiny
-\begin{minted}[frame=lines]{glsl}
+{\scriptsize
+\begin{minted}[bgcolor=bg]{packages/graphics.py:GLShaderLexer -x}
 layout(triangles)in;
 layout(triangle_strip,max_vertices=3)out;
 in int vInstanceID[];
