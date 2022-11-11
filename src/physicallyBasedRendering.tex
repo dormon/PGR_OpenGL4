@@ -1,59 +1,181 @@
 \setbeamercolor{background canvas}{bg=fitblue}
 \begin{frame}
-\frametitle{Interakce světla a hmoty}
+\frametitle{Light-Matter Interaction / Interakce světla a hmoty}
 \begin{center}
-\Huge {\color{white}Interakce světla a hmoty}
+\Huge {\color{white}Light-Matter Interaction / Interakce světla a hmoty}
 \end{center}
 \end{frame}
 \setbeamercolor{background canvas}{bg=white}
 
 \begin{frame}
-    \frametitle{Absoption, scattering}
-    \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/scattering_absorption2/scattering_absorption}
+  \scriptsize
+  \begin{itemize}
+    \item Three kinds of interactions: Absorption, Scattering, Emission.
+  \end{itemize}
+  \begin{itemize}
+    \item Tři druhy interakcí: Pohlcení, odraz/lom, vyzáření.
+  \end{itemize}
+  \frametitle{Absoption, scattering}
+  \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/scattering_absorption2/scattering_absorption}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Absoption, scattering}
-    \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/scattering_absorption1/scattering_absorption}
+\begin{frame}\frametitle{Absoption, scattering}
+  \scriptsize
+  \begin{itemize}
+    \item Absorption and scattering are semi independent values.
+    \item But fotons that are absorbed cannot be scattered.
+    \item And fotons that are scattered cannot be absorbed.
+  \end{itemize}
+  \begin{itemize}
+    \item Absorpce a odraz jsou více méně nezávislé hodnoty.
+    \item Ale fotony, které jsou absorbovány nemůžou být odraženy a naopak.
+  \end{itemize}
+  \begin{figure}[ht]
+  \includegraphics[width=0.8\textwidth]{pics/physicallyBasedRendering/scattering_absorption1/scattering_absorption}
+  \end{figure}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Specular, diffuse component}
-    \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/specular_diffuse}
+\begin{frame}\frametitle{Specular, diffuse component}
+  \scriptsize
+  \begin{itemize}
+    \item Specular component is a light directly reflected from a surface.
+    \item Specular component is dominant in metals.
+    \item Diffuse component is dominant in dielectrics/isolants.
+    \item Diffuse component is a light scattered inside material, when the entry and exit point of the light is closer than the size of screen pixel.
+  \end{itemize}
+  \begin{itemize}
+    \item Spekulární složka je odražené světlo přímo z povrchu.
+    \item Je dominantní pro kovy.
+    \item Difuzní složka je dominantní pro dielektrika / izolanty.
+    \item Je to světlo, které se zalomilo uvnitř materiálů. Vstup světla a výstup světla z materiálu musí být k sobě blíž než je velikost pixelu.
+  \end{itemize}
+  \begin{figure}[ht]
+  \includegraphics[width=0.5\textwidth]{pics/physicallyBasedRendering/specular_diffuse}
+  \end{figure}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Subsurface scattering}
-    \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/subsurface_pixel_size}
+\begin{frame}\frametitle{Subsurface scattering}
+  \scriptsize
+  \begin{itemize}
+    \item If the entry and exit point of the light is far away from each other, we are talking about subsurface scattering not about diffuse light.
+    \item Wax, skin, ...
+  \end{itemize}
+  \begin{itemize}
+    \item Když jsou vstupní a výstupní body světla od sebe daleko, mluvíme od pod povrchovém lomení světla. Řeší se pomocí jiných metod.
+    \item Vosk, kůže, ...
+  \end{itemize}
+  \begin{figure}[ht]
+  \includegraphics[width=0.6\textwidth]{pics/physicallyBasedRendering/subsurface_pixel_size}
+  \end{figure}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Lom světla kovů}
+\begin{frame}\frametitle{Metals / Lom světla kovů}
+  \scriptsize
+  \begin{itemize}
+    \item Metals only reflect incoming light or convert the light to other forms of energy.
+    \item Left: metal, right: non-metal
+  \end{itemize}
+  \begin{itemize}
+    \item Kovy světlo pouze odráží nebo přeměňují na jiný druh energie (teplo).
+    \item Vlevo: kov, vpravo: nekov
+  \end{itemize}
+  \begin{figure}[ht]
     \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/metal_refraction}
+  \end{figure}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Drsnost povrchu a mikroplošky}
-    \includegraphics[width=0.8\textwidth]{pics/physicallyBasedRendering/roughness/roughness.pdf}
+\begin{frame}\frametitle{Surface roughness and microfacets / Drsnost povrchu a mikroplošky}
+  \scriptsize
+  \begin{itemize}
+    \item Microscopic structures determine coherency of reflected light rays.
+    \item Microfacet distribution determines the clarity of mirror images.
+  \end{itemize}
+  \begin{itemize}
+    \item Mikroskopické struktury určují koherentnost odražených paprsků.
+    \item Distribuce mikroplošek určuje čistost zrcadlového odrazu.
+  \end{itemize}
+  \begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{pics/physicallyBasedRendering/roughness/roughness.pdf}
+  \end{figure}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Zastínění mikroplošek}
-    \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/microfacets_occlusion}
+\begin{frame}\frametitle{Microfacet shadowing / Zastínění mikroplošek}
+  \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/microfacets_occlusion}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Zastínění mikroplošek}
-    \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/microfacet_masking}
+\begin{frame}\frametitle{Microfacet shadowing / Zastínění mikroplošek}
+  \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/microfacet_masking}
 \end{frame}
 
-
-
-\begin{frame}
-    \frametitle{State of the art}
+\begin{frame}\frametitle{State of the art}
+  \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{pics/physicallyBasedRendering/pbr}
-    \pause\vfill
-    Dneska jen kousek :(
+  \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Metalic workflow}
+  \begin{columns}[c]
+  \column{.5\textwidth}
+    \scriptsize
+    \begin{itemize}
+      \item Metalic workflow is intuitive way of representing different material properties.
+      \item Color, metalness, roughness, normals.
+      \item Metalness 1 or 0: metal or non-metal.
+      \item Roughness represents microfacets.
+    \end{itemize}
+    \begin{itemize}
+      \item Metalická reprezentace materiálů je intuitivní.
+      \item Barva, kovovost, drsnost, a normálová mapa.
+      \item Metalness (kovovost) je buď jedna nebo nula.
+      \item Roughness (drsnost) předtavuje distribuci mikroplošek.
+    \end{itemize}
+  \column{.5\textwidth}
+    \includegraphics[width=0.48\textwidth]{pics/physicallyBasedRendering/metal/color}
+    \includegraphics[width=0.48\textwidth]{pics/physicallyBasedRendering/metal/metalness}
+    \includegraphics[width=0.48\textwidth]{pics/physicallyBasedRendering/metal/roughness}
+    \includegraphics[width=0.48\textwidth]{pics/physicallyBasedRendering/metal/normal}
+  \end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Metalness and roughness}
+  \scriptsize
+  \begin{itemize}
+    \item Top row: Non-metal, bottom row: metal.
+    \item From left to right: roughness from 0 to 1
+  \end{itemize}
+  \begin{itemize}
+    \item Horní řádek nekov, dolní kov.
+    \item Zleva do prava, zvyšující se drsnost od 0 po 1. 
+  \end{itemize}
+  \begin{figure}[ht]
+    \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/metal/roughness_metalness}
+  \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Normal map}
+  \scriptsize
+  \begin{itemize}
+    \item Left: without normal map, Right: with normal map
+  \end{itemize}
+  \begin{itemize}
+    \item Vlevo: bez normálové mapy, vpravo s normálovou mapou
+  \end{itemize}
+  \begin{figure}[ht]
+    \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/metal/normal_map}
+  \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Environment mapping}
+  \scriptsize
+  \begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{pics/physicallyBasedRendering/metal/environment_map}
+  \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Metalic workflow}
+  \begin{figure}[ht]
+    \includegraphics[width=\textwidth]{pics/physicallyBasedRendering/metal/metal_workflow}
+  \end{figure}
 \end{frame}
 
 \begin{frame}

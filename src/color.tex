@@ -40,6 +40,7 @@
 
     \begin{columns}[c]
     \column{.5\textwidth}
+        \scriptsize
         Logarithmic sensitivity of human eye\\
         Logaritmická citlivost oka
 
@@ -78,19 +79,23 @@
 //default framebuffer
 SDL_GL_SetAttribute(SDL_GL_FRAMEBUFFER_SRGB_CAPABLE,1);
 ...
+//enabling SRGB in OpenGL
 glEnable(GL_FRAMEBUFFER_SRGB);
 \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Gamma Correct}
+  \scriptsize
 	\begin{itemize}
   \item The light computation has to be done in linear space.
   \item After the computation is done, it has to be gamma corrected.
   \item Sharp transition from lit and shadowed parts.
+	\end{itemize}
+	\begin{itemize}
   \item Výpočet osvětlení musí být proveden v lineárním prostoru.
-  \item Po výšpočtu osvětlení je nutné obrázek upravit gamma korekcí.
-  \item Ostrý přechod ze světla do stínu.
+  \item Po výpočtu osvětlení je nutné obrázek upravit gamma korekcí.
+  \item Ostrý přechod ze světla do stínu je správně.
 	\end{itemize}
 	\begin{figure}[h]
 	\includegraphics[width=8cm,keepaspectratio]{pics/color/gamma_correct}
@@ -108,6 +113,8 @@ glEnable(GL_FRAMEBUFFER_SRGB);
 \frametitle{Gamma Correct}
 	\begin{itemize}
   \item Left incorrect, right correct.
+	\end{itemize}
+	\begin{itemize}
   \item Vlevo bez korekce, vpravo s korekcí.
 	\end{itemize}
 	\begin{picture}(120,150)
