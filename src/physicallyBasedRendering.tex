@@ -179,7 +179,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Osvětlení}
+    \frametitle{Illumination / Osvětlení}
 
     \begin{columns}[c]
     \column{.5\textwidth}
@@ -194,7 +194,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Zobrazovací rovnice}
+    \frametitle{Rendering equation / Zobrazovací rovnice}
     \begin{equation*}
         L_o(\mathbf x, \omega, \lambda, t) = L_e(\mathbf x, \omega, \lambda, t) + \int\limits_\Omega f_r(\mathbf x, \omega', \omega, \lambda, t) L_i(\mathbf x, \omega', \lambda, t) (-\omega' \cdot \mathbf n) d \omega'
     \end{equation*}
@@ -206,78 +206,92 @@
     \end{equation*}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Lokální osvětlovací model}
-
-    \begin{itemize}
-        \item Odraz světla v "jednom bodu".
-        \item Diferenciální ploška scény.
-    \end{itemize}
-    \pause\vfill
-    \begin{equation*}
-        L_{\{o,e,i\}}(\mathbf x, \omega, \lambda, t)
-    \end{equation*}
-    \begin{itemize}
-         \item Radiance
-         \item $W \cdot sr^{-1} \cdot m^{-2} (\cdot m^{-1})$
-    \end{itemize}
-    \pause\vfill
-    \begin{equation*}
-        f_r(\mathbf x, \omega', \omega, \lambda, t)
-    \end{equation*}
-    \begin{itemize}
-        \item BRDF
-        \item $sr^{-1}$
-    \end{itemize}
+\begin{frame}\frametitle{Local illumination models / Lokální osvětlovací model}
+  \scriptsize
+  \begin{itemize}
+      \item Light reflection in "one point"
+      \item Differential scene surface.
+  \end{itemize}
+  \begin{itemize}
+      \item Odraz světla v "jednom bodu".
+      \item Diferenciální ploška scény.
+  \end{itemize}
+  \pause\vfill
+  \begin{equation*}
+      L_{\{o,e,i\}}(\mathbf x, \omega, \lambda, t)
+  \end{equation*}
+  \begin{itemize}
+       \item Radiance
+       \item $W \cdot sr^{-1} \cdot m^{-2} (\cdot m^{-1})$
+  \end{itemize}
+  \pause\vfill
+  \begin{equation*}
+      f_r(\mathbf x, \omega', \omega, \lambda, t)
+  \end{equation*}
+  \begin{itemize}
+      \item BRDF
+      \item $sr^{-1}$
+  \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{BRDF}
-    \begin{itemize}
-        \item Bidirectional Reflectance Distribution Function.
-        \item Hustota pravděpodobnosti (skoro).
-    \end{itemize}
-    \pause\vfill
-    Reciprocita
-    \begin{equation*}
-        f_r(\mathbf x, \omega', \omega) = f_r(\mathbf x, \omega, \omega')
-    \end{equation*}
-    Zákon zachování energie
-    \begin{equation*}
-        \int\limits_\Omega f_r(\mathbf x, \omega', \omega) (\omega \cdot \mathbf n) d\omega \le 1
-    \end{equation*}
-    Izotropie x Anizotropie
+\begin{frame}\frametitle{BRDF}
+  \scriptsize
+  \begin{itemize}
+      \item Bidirectional Reflectance Distribution Function.
+      \item Almost like probability density function (pdf).
+  \end{itemize}
+  \begin{itemize}
+      \item Bidirectional Reflectance Distribution Function.
+      \item Hustota pravděpodobnosti (skoro).
+  \end{itemize}
+  \pause\vfill
+  Reciprocity\\
+  Reciprocita
+  \begin{equation*}
+      f_r(\mathbf x, \omega', \omega) = f_r(\mathbf x, \omega, \omega')
+  \end{equation*}
+  Conservation of energy\\
+  Zákon zachování energie
+  \begin{equation*}
+      \int\limits_\Omega f_r(\mathbf x, \omega', \omega) (\omega \cdot \mathbf n) d\omega \le 1
+  \end{equation*}
+  Izotropy x Anisotropy\\
+  Izotropie x Anizotropie
 \end{frame}
 
-\begin{frame}
-    \frametitle{Varianty BRDF}
-    \begin{itemize}
-        \item Phong
-        \item Blinn-Phong
-        \item Cook-Torrance
-        \item GGX
-        \item ...
-    \end{itemize}
-    \pause\vfill
-    \begin{itemize}
-        \item Pragmatické x Fyzikální
-        \item Výběr podle aplikace.
-    \end{itemize}
+\begin{frame}\frametitle{BRDF variants / Varianty BRDF}
+  \begin{itemize}
+    \item Phong
+    \item Blinn-Phong
+    \item Cook-Torrance
+    \item GGX (microfacet distribution)
+    \item ...
+  \end{itemize}
+  \pause\vfill
+  \begin{itemize}
+    \item Pragmatic x Physically Based
+    \item Depends on Application.
+  \end{itemize}
 \end{frame}
 
-\section{Odraz světla}
+\section{Light Reflection / Odraz světla}
 
-\begin{frame}
-    \frametitle{Odraz a lom světla}
-    \includegraphics[width=.3\textwidth]{pics/physicallyBasedRendering/image106}
-    \begin{itemize}
-        \item Odraz a lom na hranicích prostředí.
-        \item Indexy lomu (rychlost v daném prostředí).
-        \item Polarizace odrazem.
-    \end{itemize}
-    \begin{equation*}
-        \frac{v_1}{v_2} = \frac{\sin\alpha}{\sin\beta}
-    \end{equation*}
+\begin{frame}\frametitle{Odraz a lom světla}
+  \includegraphics[width=.3\textwidth]{pics/physicallyBasedRendering/image106}
+  \scriptsize
+  \begin{itemize}
+    \item Reflection and refraction happens on interface between two mediums.
+    \item Index of Refraction (IOR) (light speed in the medium).
+    \item Reflection based light polarization.
+  \end{itemize}
+  \begin{itemize}
+    \item Odraz a lom na hranicích prostředí.
+    \item Indexy lomu (rychlost v daném prostředí).
+    \item Polarizace odrazem.
+  \end{itemize}
+  \begin{equation*}
+    \frac{v_1}{v_2} = \frac{\sin\alpha}{\sin\beta}
+  \end{equation*}
 \end{frame}
 
 \begin{frame}
