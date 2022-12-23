@@ -2,21 +2,21 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="380.22485"
    height="214.48915"
    id="svg2"
    inkscape:label="Pozadí"
    version="1.1"
-   inkscape:version="0.47 r22583"
-   sodipodi:docname="Nový dokument 1">
+   inkscape:version="1.2.2 (1:1.2.2+202212051550+b0a8486541)"
+   sodipodi:docname="tu.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,18 +25,21 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="220.84928"
-     inkscape:cy="98.847939"
+     inkscape:cx="221.72848"
+     inkscape:cy="98.489873"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g5376"
      showgrid="false"
-     inkscape:window-width="1365"
-     inkscape:window-height="750"
+     inkscape:window-width="1919"
+     inkscape:window-height="1048"
      inkscape:window-x="1"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="true"
-     inkscape:guide-bbox="true" />
+     inkscape:guide-bbox="true"
+     inkscape:showpageshadow="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs3">
     <marker
@@ -48,7 +51,7 @@
        style="overflow:visible">
       <path
          id="path4166"
-         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
          transform="matrix(-0.4,0,0,-0.4,-4,0)" />
     </marker>
@@ -332,7 +335,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -551,16 +554,17 @@
         </g>
       </g>
       <text
-         transform="matrix(0,1,-1,0,0,0)"
+         transform="rotate(90)"
          id="text4083"
          y="-292.00565"
          x="136.79579"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Black;-inkscape-font-specification:'Arial Black, Bold'"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Bold';fill:#000000;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
            y="-292.00565"
            x="136.79579"
            id="tspan4085"
-           sodipodi:role="line">...</tspan></text>
+           sodipodi:role="line"
+           style="font-size:11px;line-height:1.25">...</tspan></text>
       <rect
          y="17.428989"
          x="348.9758"
@@ -572,42 +576,46 @@
          id="text4089"
          y="11.905061"
          x="392.94934"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Black;-inkscape-font-specification:'Arial Black, Bold'"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Bold';fill:#000000;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
            y="11.905061"
            x="392.94934"
            id="tspan4091"
-           sodipodi:role="line">Shader Program</tspan></text>
+           sodipodi:role="line"
+           style="font-size:11px;line-height:1.25">Shader Program</tspan></text>
       <text
          id="text4093"
          y="36.148724"
          x="352.99988"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Black;-inkscape-font-specification:'Arial Black, Bold'"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Bold';fill:#000000;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
            y="36.148724"
            x="352.99988"
            id="tspan4095"
-           sodipodi:role="line">uniform sampler2D Textura;</tspan></text>
+           sodipodi:role="line"
+           style="font-size:11px;line-height:1.25">uniform sampler2D Textura;</tspan></text>
       <text
          id="text4093-0"
          y="63.795166"
          x="352.99988"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Black;-inkscape-font-specification:'Arial Black, Bold'"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Bold';fill:#000000;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
            y="63.795166"
            x="352.99988"
            id="tspan4095-0"
-           sodipodi:role="line">uniform sampler2D Terrain;</tspan></text>
+           sodipodi:role="line"
+           style="font-size:11px;line-height:1.25">uniform sampler2D Terrain;</tspan></text>
       <text
          id="text4093-7"
          y="90.564209"
          x="352.99988"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Black;-inkscape-font-specification:'Arial Black, Bold'"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Bold';fill:#000000;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
            y="90.564209"
            x="352.99988"
            id="tspan4095-01"
-           sodipodi:role="line">uniform sampler2D HeightMap;</tspan></text>
+           sodipodi:role="line"
+           style="font-size:11px;line-height:1.25">uniform sampler2D HeightMap;</tspan></text>
       <path
          id="path4146"
          d="m 244.20438,33.875878 30.55711,32.577419"
@@ -632,22 +640,24 @@
          id="text5342"
          y="80.219322"
          x="165"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Black;-inkscape-font-specification:'Arial Black, Bold'"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Bold';fill:#000000;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
            y="80.219322"
            x="165"
            id="tspan5344"
-           sodipodi:role="line">Textury</tspan></text>
+           sodipodi:role="line"
+           style="font-size:11px;line-height:1.25">Textures</tspan></text>
       <text
          id="text5346"
          y="-6.2092471"
          x="235.71428"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Black;-inkscape-font-specification:'Arial Black, Bold'"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Bold';fill:#000000;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
            y="-6.2092471"
            x="235.71428"
            id="tspan5348"
-           sodipodi:role="line">Texturovací jednotky</tspan></text>
+           sodipodi:role="line"
+           style="font-size:11px;line-height:1.25">Texture Units</tspan></text>
       <g
          id="g5366">
         <rect
@@ -659,14 +669,15 @@
            style="fill:url(#linearGradient5443);fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
         <text
            xml:space="preserve"
-           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Black;-inkscape-font-specification:'Arial Black, Bold'"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Bold';fill:#000000;fill-opacity:1;stroke:none"
            x="205.59389"
            y="38.637642"
            id="text5350"><tspan
              sodipodi:role="line"
              id="tspan5352"
              x="205.59389"
-             y="38.637642">ID1</tspan></text>
+             y="38.637642"
+             style="font-size:11px;line-height:1.25">ID1</tspan></text>
       </g>
       <g
          id="g5371">
@@ -679,14 +690,15 @@
            style="fill:url(#linearGradient5445);fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
         <text
            xml:space="preserve"
-           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial Black;-inkscape-font-specification:'Arial Black, Bold'"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Bold';fill:#000000;fill-opacity:1;stroke:none"
            x="204.87148"
            y="126.5209"
            id="text5354"><tspan
              sodipodi:role="line"
              id="tspan5356"
              x="204.87148"
-             y="126.5209">ID2</tspan></text>
+             y="126.5209"
+             style="font-size:11px;line-height:1.25">ID2</tspan></text>
       </g>
     </g>
   </g>

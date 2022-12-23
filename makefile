@@ -9,7 +9,7 @@ allPDFFromSVG := $(shell find -type f | grep "\.svg$$" | sed "s/svg$$/pdf/g")
 %.pdf: %.gplot
 	gnuplot $<
 
-all: ${allPDFFromSVG}
+all: ${allPDFFromSVG} pics/physicallyBasedRendering/shininessGraph.pdf
 	pdflatex -shell-escape $(SRCDIR)$(TARGET)
 	pdflatex -shell-escape $(SRCDIR)$(TARGET)
 	#bibtex $(TARGET)

@@ -1,24 +1,28 @@
 \setbeamercolor{background canvas}{bg=fitblue}
 \begin{frame}
-\frametitle{Textury}
+\frametitle{Textures / Textury}
 \begin{center}
-\Huge {\color{white}Textury}
+\Huge {\color{white}Textures / Textury}
 \end{center}
 \end{frame}
 \setbeamercolor{background canvas}{bg=white}
 
-\begin{frame}[fragile]
-\frametitle{Textury - nahrání rastrových dat}
-	\begin{itemize}
+\begin{frame}[fragile]\frametitle{Textures - uploading of raster data / nahrání rastrových dat}\scriptsize
+\begin{itemize}
+	\item A texture is raster image mapped to the geometry.
+	\item It is an object in OpenGL.
+\end{itemize}
+
+\begin{itemize}
 	\item Textura je rastrový obrázek, který se namapuje na geometrii.
 	\item V OpenGL je to objekt.
 \end{itemize}
 {\scriptsize
 \begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
-//vytvoreni jmena textury
-glCreateTextures(GL_TEXTURE_2D,1,&tColor);//vygenerovani jmeno textury pro barvu
+//create texture identifier
+glCreateTextures(GL_TEXTURE_2D,1,&tColor);
 
-//nastaveni parametru textury
+//set texture parameters
 //filtering
 glTextureParameteri(tColor,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
 glTextureParameteri(tColor,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
@@ -27,18 +31,23 @@ glTextureParameteri(tColor,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
 glTextureParameteri(tColor,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
 glTextureParameteri(tColor,GL_TEXTURE_WRAP_T,GL_REPEAT);
 
-//alokace a nahrani dat na GPU
-glTextureImage2DEXT(tColor,GL_TEXTURE_2D,0,//alokujeme misto
-  GL_RGBA32F,//format ulozeni na GPU (4*float pro pixel)
-  WIDTH,HEIGHT,0,GL_RGBA,//format ulozeni dan na CPU
-  GL_UNSIGNED_BYTE,//typ dat na CPU
-  Data);//data na CPU
+//allocation and data upload
+glTextureImage2DEXT(tColor,GL_TEXTURE_2D,0,//allocate
+  GL_RGBA32F,//internal format on GPU
+  WIDTH,HEIGHT,0,GL_RGBA,//format on CPU
+  GL_UNSIGNED_BYTE,//type of data
+  Data);//pointer to data on CPU
 \end{minted}
 }
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Nastavení textur}
+\begin{frame}[fragile]\frametitle{Usage of textures / Nastavení textur}\scriptsize
+	\begin{itemize}
+	\item Shader can access textures using sampler uniform variable.
+	\item Textures is bound to texture unit.
+	\item Uniform variable is bound to texture unit.
+	\end{itemize}
+
 	\begin{itemize}
 	\item V Shader Programu se k nim přistupuje přes uniformní proměnné.
 	\item Textura se naváže k texturovací jednotce.
@@ -49,8 +58,7 @@ glTextureImage2DEXT(tColor,GL_TEXTURE_2D,0,//alokujeme misto
 	\end{figure}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Nastavení textur}
+\begin{frame}[fragile]\frametitle{Usage of textures / Nastavení textur}
 Shader Program:
 {\scriptsize
 \begin{minted}[bgcolor=bg]{packages/graphics.py:GLShaderLexer -x}
@@ -63,18 +71,24 @@ void main(){
   //...
 \end{minted}
 }
-Aplikace:
+Application:
 {\scriptsize
 \begin{minted}[bgcolor=bg]{packages/c_cpp.py:CppLexer -x}
-//pripojemni textur k texurovacim jednotkam
+//bind textures to texture units
 glBindTextureUnit(0,ID2);
 glBindTextureUnit(1,ID1);
 \end{minted}
 }
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Adresování textur}
+\begin{frame}[fragile]\frametitle{Texture space /Adresování textur}
+	\begin{itemize}
+	\item Texture coordinates
+	\item Size of texture in pixels does not matter.
+	\item Left bottom corner - (0.0f,0.0f)
+	\item Right top corner - (1.0f,1.0f)
+	\end{itemize}
+
 	\begin{itemize}
 	\item Textura se adresuje texturovacími koordináty.
 	\item Velikost Textury nehraje roli.
@@ -86,11 +100,16 @@ glBindTextureUnit(1,ID1);
 	\end{figure}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Atlas textur}
+\begin{frame}[fragile]\frametitle{Texture atlas / Atlas textur}
+	\begin{itemize}
+	\item Multiple images in one textures.
+	\item Reduces number of texture units.
+	\item Reduces texture switching.
+	\end{itemize}
+
 	\begin{itemize}
 	\item Více obrázků v jedné textuře.
-	\item Staří jedna texturovací jednotka.
+	\item Stačí jedna texturovací jednotka.
 	\item Zamezíme přepínání.
 	\end{itemize}
 	\begin{figure}[h]
